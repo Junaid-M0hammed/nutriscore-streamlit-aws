@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+html, body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(-45deg, #e0f7fa, #e1f5fe, #f1f8e9, #fbe9e7);
+    background-size: 600% 600%;
+    animation: bg-animation 15s ease infinite;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes bg-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.block-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2.5rem 3rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #264653;
+}
+
+input[type=number] {
+    border-radius: 10px !important;
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    padding: 0.5rem;
+    border: 1px solid #ccc !important;
+}
+
+.stButton>button {
+    background-color: #2a9d8f;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.stButton>button:hover {
+    background-color: #21867a;
+}
+
+.stAlert {
+    background-color: #e6f4ea;
+    border-left: 6px solid #43a047;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(67, 160, 71, 0.2);
+    padding: 0.8rem 1rem;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 1.3rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    background: #eeeeee;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    animation: pulseColor 2.5s ease-in-out infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+@keyframes pulseColor {
+    0%   { background-color: #eeeeee; }
+    50%  { background-color: #d6e4ff; }
+    100% { background-color: #eeeeee; }
+}
+
+.footer {
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 4rem;
+}
+
+.footer a {
+    color: #2a9d8f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+    .block-container {
+        padding: 2rem 1.5rem;
+    }
+    .badge {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+}

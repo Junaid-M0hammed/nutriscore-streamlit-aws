@@ -3,17 +3,18 @@ import argparse
 from pathlib import Path
 
 NUMERIC_COLS = [
-    'energy_100g','fat_100g','saturated-fat_100g','carbohydrates_100g',
-    'sugars_100g','proteins_100g','salt_100g','fiber_100g'
+    'energy-kcal_100g', 'fat_100g', 'saturated-fat_100g', 'carbohydrates_100g',
+    'sugars_100g', 'proteins_100g', 'salt_100g', 'fiber_100g'
 ]
-TARGET = 'nutrition_score_fr_100g'
+TARGET = 'nutriscore_score'
+
 
 def clean_df(df):
     df = df[NUMERIC_COLS + [TARGET]].dropna()
     return df
 
 def main(raw_path, out_path):
-    df = pd.read_csv(raw_path, sep='\t', low_memory=False)
+    df = pd.read_csv(raw_path, sep='\t', low_memory=False, on_bad_lines='skip')
     df = clean_df(df)
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(out_path, index=False)

@@ -1,10 +1,11 @@
 import pandas as pd
+import numpy as np
 import argparse, joblib
 from sklearn.model_selection import train_test_split
 from lightgbm import LGBMRegressor
 from sklearn.metrics import mean_squared_error
 
-TARGET = 'nutrition_score_fr_100g'
+TARGET = 'nutriscore_score'
 
 def main(data, model_path):
     df = pd.read_csv(data)
@@ -15,7 +16,7 @@ def main(data, model_path):
     model = LGBMRegressor(n_estimators=300, learning_rate=0.05, random_state=42)
     model.fit(X_train, y_train)
     preds = model.predict(X_val)
-    rmse = mean_squared_error(y_val, preds, squared=False)
+    rmse = np.sqrt(mean_squared_error(y_val, preds))
     print(f"RMSE: {rmse:.3f}")
     joblib.dump(model, model_path)
     print(f"Saved model → {model_path}")
