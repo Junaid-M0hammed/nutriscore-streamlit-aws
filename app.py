@@ -49,7 +49,7 @@ def main():
         st.markdown("## 🧾 Nutri-Score Details")
         st.markdown(f"<div class='badge'>{emoji} {grade}</div>", unsafe_allow_html=True)
 
-        st.progress(min(score / 40, 1.0))
+        st.progress(min(max(score / 40, 0.0), 1.0))
 
         with st.expander("ℹ️ What does this grade mean?"):
             st.markdown("""
